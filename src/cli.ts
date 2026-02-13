@@ -63,20 +63,20 @@ program
   .parse()
 
 function getPort(options: IOptions): number {
-  assert(/^\d+$/.test(options.port), 'The parameter port must be integer')
+  assert(/^\d+$/.test(options.port), 'The parameter port must be an integer')
 
   return Number.parseInt(options.port, 10)
 }
 
 function getTimeout(options: IOptions): number {
-  assert(/^\d+$/.test(options.timeout), 'The parameter timeout must be integer')
+  assert(/^\d+$/.test(options.timeout), 'The parameter timeout must be an integer')
 
   return Number.parseInt(options.timeout, 10) * 1000
 }
 
 function getTimeToLive(options: IOptions): number | undefined {
   if (options.timeToLive) {
-    assert(/^\d+$/.test(options.timeToLive), 'The parameter timeout must be integer')
+    assert(/^\d+$/.test(options.timeToLive), 'The parameter timeToLive must be an integer')
 
     return Number.parseInt(options.timeToLive, 10) * 1000
   } else {
