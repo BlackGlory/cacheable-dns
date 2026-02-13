@@ -63,20 +63,20 @@ program
   .parse()
 
 function getPort(options: IOptions): number {
-  assert(/^\d+$/.test(options.port), 'The parameter port must be an integer')
+  assert(isIntegerString(options.port), 'The parameter port must be an integer')
 
   return Number.parseInt(options.port, 10)
 }
 
 function getTimeout(options: IOptions): number {
-  assert(/^\d+$/.test(options.timeout), 'The parameter timeout must be an integer')
+  assert(isIntegerString(options.timeout), 'The parameter timeout must be an integer')
 
   return Number.parseInt(options.timeout, 10) * 1000
 }
 
 function getTimeToLive(options: IOptions): number | undefined {
   if (options.timeToLive) {
-    assert(/^\d+$/.test(options.timeToLive), 'The parameter timeToLive must be an integer')
+    assert(isIntegerString(options.timeToLive), 'The parameter timeToLive must be an integer')
 
     return Number.parseInt(options.timeToLive, 10) * 1000
   } else {
@@ -86,6 +86,8 @@ function getTimeToLive(options: IOptions): number | undefined {
 
 function getStaleWhileRevalidate(options: IOptions): number | undefined {
   if (options.staleWhileRevalidate) {
+    assert(isIntegerString(options.staleWhileRevalidate), 'The parameter staleWhileRevalidate must be an integer')
+
     return Number.parseInt(options.staleWhileRevalidate, 10) * 1000
   } else {
     return undefined
@@ -94,6 +96,8 @@ function getStaleWhileRevalidate(options: IOptions): number | undefined {
 
 function getStaleIfError(options: IOptions): number | undefined {
   if (options.staleIfError) {
+    assert(isIntegerString(options.staleIfError), 'The parameter stableIfError must be an integer')
+
     return Number.parseInt(options.staleIfError, 10) * 1000
   } else {
     return undefined
@@ -106,4 +110,8 @@ function getLogLevel(options: IOptions): Level {
 
 function getCacheFilename(options: IOptions): string | undefined {
   return options.cache
+}
+
+function isIntegerString(text: string): boolean {
+  return /^\d+$/.test(text)
 }
