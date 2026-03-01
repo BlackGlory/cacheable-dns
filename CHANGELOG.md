@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/BlackGlory/cacheable-dns/compare/v0.4.3...v0.5.0) (2026-03-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node.js v18 => Node.js v22
+
+* upgrade dependencies ([2b1571c](https://github.com/BlackGlory/cacheable-dns/commit/2b1571cdd135c6b002196f6e24b1ef51ed6d7357))
+
 ### [0.4.3](https://github.com/BlackGlory/cacheable-dns/compare/v0.4.2...v0.4.3) (2026-02-13)
 
 
