@@ -2,7 +2,7 @@
 import { program } from 'commander'
 import { assert } from '@blackglory/errors'
 import { Level, Logger, TerminalTransport, stringToLevel } from 'extra-logger'
-import { parseServerInfo } from '@utils/parse-server-info.js'
+import { parseHostnamePort } from 'extra-utils'
 import { startServer } from './server.js'
 import { name, version, description } from '@utils/package.js'
 
@@ -42,7 +42,7 @@ program
     const staleWhileRevalidate = getStaleWhileRevalidate(options)
     const staleIfError = getStaleIfError(options)
     const cacheFilename = getCacheFilename(options)
-    const dnsServer = parseServerInfo(server)
+    const dnsServer = parseHostnamePort(server)
 
     const logger = new Logger({
       level: logLevel

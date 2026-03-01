@@ -32,7 +32,6 @@ import {
 } from 'extra-dns'
 import { timeoutSignal } from 'extra-abort'
 import { randomInt } from 'extra-rand'
-import { IServerInfo } from './utils/parse-server-info.js'
 
 export enum State {
   Hit
@@ -58,7 +57,10 @@ export async function createMemoizedResolve(
   , staleIfError
   , cacheFilename
   }: {
-    dnsServer: IServerInfo
+    dnsServer: {
+      hostname: string
+      port?: number
+    }
     timeout: number
     timeToLive?: number
     staleWhileRevalidate?: number
@@ -66,7 +68,7 @@ export async function createMemoizedResolve(
     cacheFilename?: string
   }
 ): Promise<(question: IQuestion) => Promise<[IPacket, State]>> {
-  const client = new DNSClient(dnsServer.host, dnsServer.port ?? 53)
+  const client = new DNSClient(dnsServer.hostname, dnsServer.port ?? 53)
 
   if (
     isUndefined(timeToLive) &&

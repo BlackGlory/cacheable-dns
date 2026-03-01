@@ -67,6 +67,7 @@
     "extra-logger": "^0.8.0",
     "extra-memoize": "^0.10.1",
     "extra-promise": "^7.1.1",
-    "extra-rand": "^0.5.1"
+    "extra-rand": "^0.5.1",
+    "extra-utils": "^6.0.0"
   }
 }

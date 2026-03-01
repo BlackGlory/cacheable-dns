@@ -1,4 +1,3 @@
-import { IServerInfo } from '@utils/parse-server-info.js'
 import { Logger } from 'extra-logger'
 import chalk from 'chalk'
 import { DNSServer, IPacket, IQuestion, QR, RCODE, TYPE } from 'extra-dns'
@@ -6,7 +5,10 @@ import { createMemoizedResolve, FailedResolution, State } from './resolve.js'
 
 interface IStartServerOptions {
   port: number
-  dnsServer: IServerInfo
+  dnsServer: {
+    hostname: string
+    port?: number
+  }
   timeout: number
   logger: Logger
   timeToLive?: number
