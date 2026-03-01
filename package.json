@@ -11,7 +11,7 @@
   ],
   "type": "module",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=22"
   },
   "repository": "git@github.com:BlackGlory/cacheable-dns.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
@@ -53,20 +53,20 @@
     "yarn-deduplicate": "^6.0.2"
   },
   "dependencies": {
-    "@blackglory/errors": "^3.0.3",
+    "@blackglory/errors": "^3.1.0",
     "@blackglory/prelude": "^0.4.0",
-    "@extra-memoize/extra-disk-cache": "^0.8.3",
-    "@extra-memoize/memory-cache": "^0.2.10",
-    "brave-json": "^0.2.0",
+    "@extra-memoize/extra-disk-cache": "^0.9.3",
+    "@extra-memoize/memory-cache": "^0.3.1",
+    "brave-json": "^0.2.1",
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
-    "extra-abort": "^0.4.0",
-    "extra-disk-cache": "^0.12.1",
-    "extra-dns": "^0.1.6",
-    "extra-filesystem": "^0.5.1",
-    "extra-logger": "^0.7.2",
-    "extra-memoize": "^0.9.3",
-    "extra-promise": "^7.0.0",
-    "extra-rand": "^0.4.1"
+    "extra-abort": "^0.4.1",
+    "extra-disk-cache": "^0.13.0",
+    "extra-dns": "^0.1.8",
+    "extra-filesystem": "^0.6.2",
+    "extra-logger": "^0.8.0",
+    "extra-memoize": "^0.10.1",
+    "extra-promise": "^7.1.1",
+    "extra-rand": "^0.5.1"
   }
 }
