@@ -32,6 +32,8 @@ import {
 } from 'extra-dns'
 import { timeoutSignal } from 'extra-abort'
 import { randomInt } from 'extra-rand'
+import { assertType } from '@utils/assert-type.js'
+import { Equals } from 'hotypes'
 
 export enum State {
   Hit
@@ -183,7 +185,7 @@ export async function createMemoizedResolve(
           , TARGET: value.TARGET
           }]
         }
-        throw new Error(`Unhandled raw ${value}`)
+        assertType<Equals<typeof value, SharedArrayBuffer>>(`Unhandled raw ${value}`)
       }
     , fromJSON([type, value]) {
         switch (type) {
@@ -224,7 +226,7 @@ export async function createMemoizedResolve(
             , value.TARGET
             )
           }
-          default: throw new Error(`Unhandled type ${type}`)
+          default: assertType<Equals<typeof type, never>>(`Unhandled type ${type}`)
         }
       }
     }
@@ -271,7 +273,9 @@ export async function createMemoizedResolve(
           case MemoizeState.Reuse: return State.Reuse
           case MemoizeState.StaleIfError: return State.StaleIfError
           case MemoizeState.StaleWhileRevalidate: return State.StaleWhileRevalidate
-          default: throw new Error(`Unknown memoize state: ${state}`)
+          default: {
+            assertType<Equals<typeof state, never>>(`Unknown memoize state: ${state}`)
+          }
         }
       })]
     }
