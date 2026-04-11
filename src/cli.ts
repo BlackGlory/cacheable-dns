@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander'
-import { assert } from '@blackglory/errors'
+import { assert } from '@blackglory/prelude'
 import { Level, Logger, TerminalTransport, stringToLevel } from 'extra-logger'
 import { parseHostnamePort } from 'extra-utils'
 import { startServer } from './server.js'
